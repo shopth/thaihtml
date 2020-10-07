@@ -1,0 +1,21 @@
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 405 /405.html
+ErrorDocument 404 http://example.com/404/
+ErrorDocument 500 http://example.com/500/
+# or map them to one error document:
+# ErrorDocument 404 /pages/errors/error_redirect.php
+# ErrorDocument 500 /pages/errors/error_redirect.php
+HeaderName /header.html
+ReadmeName /footer.html
+AddType text/html .php
+Addhandler application/x-httpd-php .php
+<Directory /path/to/indexedDir>
+  Options Indexes
+</Directory>
+RewriteEngine On
+
+Options +Indexes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
