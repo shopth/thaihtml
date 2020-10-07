@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <meta name="title" content="wrwrwr">
+    <meta name="description" content="Fast &amp; Free Video Hosting Service">
+    <meta name="keywords" content="video,upload,anonymous,free,videoupload">
+    <link rel="icon" href="img/favicon.png">
+    <title>บริการอัพโหหลดไฟล์</title>
+ 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap">
+    <div class="container">
+        <form method="POST" class="registerSection">
+            <h1>บริการอัพโหหลดไฟล์</h1>
+
+
+    <link href="https://transloadit.edgly.net/releases/uppy/v1.7.0/uppy.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="drag-drop-area"></div>
+
+    <script src="https://transloadit.edgly.net/releases/uppy/v1.7.0/uppy.min.js"></script>
+    <script>
+      var uppy = Uppy.Core()
+        .use(Uppy.Dashboard, {
+          inline: true,
+          target: '#drag-drop-area'
+        })
+        .use(Uppy.Tus, {endpoint: 'https://master.tus.io/files/'})
+
+      uppy.on('complete', (result) => {
+        console.log('Upload complete! We’ve uploaded these files:', result.successful)
+      })
+    </script>
+  </body>
+</html>
